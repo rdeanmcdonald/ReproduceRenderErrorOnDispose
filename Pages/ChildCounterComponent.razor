@@ -1,6 +1,4 @@
-﻿@page "/counter"
-
-@using Store.Counter
+﻿@using Store.Counter
 @using Fluxor
 
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
@@ -8,24 +6,14 @@
 @inject IState<CounterState> CounterState
 @inject IDispatcher Dispatcher
 
-<h1>Counter</h1>
+<p>ChildCounterComponent count: @CounterState.Value.ClickCount</p>
 
-<p>Current count: @CounterState.Value.ClickCount</p>
-<ChildCounterComponent />
-
-<button 
-    class="btn btn-primary" 
-    @onclick="@(() => Dispatcher.Dispatch(new IncrementCounterAction()))"
-    >
-    Click me
-</button>
-
-@code {
+@code {      
     protected override void OnInitialized()
     {
         base.OnInitialized();
     }
-
+    
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);

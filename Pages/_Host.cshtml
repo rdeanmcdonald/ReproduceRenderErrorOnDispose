@@ -17,7 +17,7 @@
 </head>
 <body>
     <app>
-        <component type="typeof(App)" render-mode="ServerPrerendered" />
+        <component type="typeof(App)" render-mode="Server" />
     </app>
 
     <div id="blazor-error-ui">
@@ -31,6 +31,11 @@
         <a class="dismiss">🗙</a>
     </div>
 
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write('<script src="js/blazor.polyfill.min.js"><\/script>');
+        }
+    </script>
     <script src="_framework/blazor.server.js"></script>
     <script src="_content/Fluxor.Blazor.Web/scripts/index.js"></script>
 </body>
